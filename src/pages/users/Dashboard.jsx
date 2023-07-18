@@ -74,13 +74,10 @@ const[loading, setLoading]=useState(true)
         <tr>
           {/* {Array.from({ length: 5 }).map((_, index) => ( */}
           <>
-            <th>Product name</th>
-            <th>Price</th>
-            <th>DiscountPrice</th>
-            <th>DiscountPercentage</th>
-            <th>Category</th>
-            <th>Age in Months</th>
-            <th>Status</th>
+            <th>Construction Design</th>
+            <th>Construct Description</th>
+            <th>Construction Location</th>
+            
             <th>Image</th>
             <th>Delete</th>
             <th>Update</th>
@@ -94,13 +91,10 @@ const[loading, setLoading]=useState(true)
           <tr>
 
             <>
-              <td key={index}>{item.item}</td>
-              <td key={index}>{item.price}</td>
-              <td key={index}>{item.discountPrice}</td>
-              <td key={index}>{item.discountPercentage}</td>
-              <td key={index}>{item.category}</td>
-              <td key={index}>{item.age} </td>
-              <td key={index}>{item.status}</td>
+              <td key={index}>{item.construction}</td>
+              <td key={index}>{item.constDescription}</td>
+              <td key={index}>{item.constLocation}</td>
+             
               <td key={index}>
                 <img style={{width:'2rem'}} src={item.images[0]?.url} alt="" />
               </td>

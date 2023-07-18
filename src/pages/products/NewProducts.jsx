@@ -18,12 +18,12 @@ function NewProduct() {
   const [users, setUsers] = useState([]);
 
   const initialState = {
-    description: "",
+    constDescription: "",
     tell: "",
     discountPercentage: "",
     age: "",
 
-    item: "",
+    construction: "",
     // description:"",
     // discountPercentage:"",
     // location:"",
@@ -31,7 +31,7 @@ function NewProduct() {
     infoAdd: "",
     price: "",
     category: "",
-    brand: "",
+    constLocation: "",
     firstname: "",
     phone: "",
     lastname: "",
@@ -179,153 +179,34 @@ const currentTime=new Date();
         <div className="form-outline mb-4">
           <input 
           className="form-control"
-            required
-            onChange={(e) => setForm({ ...form, item: e.target.value })}
+           
+            onChange={(e) => setForm({ ...form, construction: e.target.value })}
             type="text"
-            placeholder="item"
+            placeholder="Construction Type"
           />
         </div>
         <div className="form-outline mb-4">
           <input
                     className="form-control"
 
-            required
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
+           
+            onChange={(e) => setForm({ ...form, constDescription: e.target.value })}
             type="text"
-            placeholder="Item description"
+            placeholder="Construction description"
           />
         </div>
+         
           <div className="form-outline mb-4">
             <input
                       className="form-control"
 
-              required
-              onChange={(e) => setForm({ ...form, price: e.target.value })}
-              type="number"
-              placeholder="price"
-            />
-          </div>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              required
-              onChange={(e) =>
-                setForm({ ...form, discountPercentage: e.target.value })
-              }
-              type="number"
-              placeholder="discount in percentage"
-            />
-          </div>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              required
-              onChange={(e) => setForm({ ...form, age: e.target.value })}
-              type="number"
-              placeholder="Age in months "
-            />
-          </div>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) => setForm({ ...form, brand: e.target.value })}
+              onChange={(e) => setForm({ ...form, constLocation: e.target.value })}
               type="text"
-              placeholder="Brand of the item"
+              placeholder="Construction Location"
             />
           </div>
           </div>
-          <div className="sep-left">
-          <Form.Group
-            className="mb-1"
-            onChange={(e) => setForm({ ...form, category: e.target.value })}
-          >
-            <Form.Label>Category</Form.Label>
-            <Form.Select>
-              <option disabled selected>
-                -- Select One --
-              </option>
-              <option value="technology">technology</option>
-              <option value="tablets">tablets</option>
-              <option value="phones">phones</option>
-              <option value="laptops">Laptops</option>
-              <option value="electronics">Electronics</option>
-              <option value="funatures">Furnatures</option>
-              <option value="cars">Cars</option>
-              <option value="clothing">Clothing</option>
-              <option value="shoes">Shoes</option>
-              <option value="houses">Houses</option>
-              <option value="land">Plots</option>
-              <option value="others">Others</option>
-            </Form.Select>
-          </Form.Group>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) =>
-                setForm({ ...form, specifications: e.target.value })
-              }
-              type="text"
-              placeholder="first specification"
-            />
-          </div>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) =>
-                setForm({ ...form, specifications1: e.target.value })
-              }
-              type="text"
-              placeholder="second specification"
-            />{" "}
-          </div>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) =>
-                setForm({ ...form, specifications2: e.target.value })
-              }
-              type="text"
-              placeholder="third specification"
-            />{" "}
-          </div>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) =>
-                setForm({ ...form, specifications3: e.target.value })
-              }
-              type="text"
-              placeholder="fouth specification"
-            />{" "}
-          </div>
-
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) =>
-                setForm({ ...form, specifications4: e.target.value })
-              }
-              type="text"
-              placeholder="last specification"
-            />
-          </div>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) => setForm({ ...form, infoAdd: e.target.value })}
-              type="text"
-              placeholder="additional information"
-            />
-          </div>
+         
 
 <Form.Group className="mb-3">
 
@@ -349,7 +230,7 @@ const currentTime=new Date();
           ))}
         </div>
       </Form.Group>
-      </div>
+      
       <button type="submit" style={{width:'90%',marginBottom:'1rem'}} class="btn btn-primary btn-block">Post the Product</button>
      
 </div>

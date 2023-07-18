@@ -13,12 +13,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/features/authSlice";
 
-import Topbar from "./components/Topbar";
+<Route path="/projects" element={<ProjectsCard />} />
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import Services from "./pages/Services";
 import Gallery from "./pages/users/Gallery";
+import ProjectsCard from "./pages/products/ProjectsCard";
+import NewProducts from "./pages/products/NewProducts";
+import Topbar from "./components/Topbar";
+import AllProducts from "./pages/users/Dashboard";
+import Cardmore from "./pages/products/SingleConst";
 function App() {
   const dispatch = useDispatch();
   const [data, setDate] = useState([]);
@@ -31,8 +36,12 @@ function App() {
     <>
       <BrowserRouter>
         <ToastContainer />
-        <Topbar/>
         <ResponsiveAppBar />
+        <div style={{marginTop:'4rem'}}>
+          <Topbar/>
+        </div>
+        
+        
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
@@ -40,6 +49,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/services" element={<Services />} />
         <Route path="/photos" element={<Gallery />} />
+        <Route path="/projects" element={<ProjectsCard />} />
+        <Route path="/new-product" element={<NewProducts />} />
+        <Route path="/dashboard" element={<AllProducts />} />
+        <Route path="/single-project/:id" element={<Cardmore />} />
          
           <Route path="/login" element={<Login />} />
          

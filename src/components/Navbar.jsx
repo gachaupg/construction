@@ -21,17 +21,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../redux/features/authSlice";
 import { Call, Email, WhatsApp, WhatshotOutlined } from "@mui/icons-material";
-const pages = ["Products", "Pricing", "Blog"];
+const pages = [
+  { four: "Login" },
+  { three: "Dashboard" },
+  { five: "New Product" },
+  { six: "Logout" },
+];
 const settings = [
   { one: "Home" },
   { seven: "About Us" },
   { eight: "Projects" },
   { nine: "Contact" },
-  { four: "Login" },
-  { three: "Dashboard" },
-  { five: "New Product" },
-  { six: "Logout" },
   {ten:"services"},
+ 
 ];
 
 function ResponsiveAppBar() {
@@ -103,7 +105,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar style={{ color: "black ", background: "white" ,position:'static',zIndex:'100'}} position="static">
+    <AppBar style={{ color: "black ", background: "white" ,position:'fixed',zIndex:'100'}} position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -193,38 +195,7 @@ function ResponsiveAppBar() {
                     </Link>
                   </>
 
-                  {user?.result?._id && (
-                    <Link to={`/users-dashboard/${user?.result?.name}`}>
-                      <Typography textAlign="center">
-                        {setting.three}
-                      </Typography>
-                    </Link>
-                  )}
-                  {user?.result?.admin === true && (
-                    <Link to={`/admin-dashboard/${user?.result?.name}`}>
-                      {setting.seven}
-                    </Link>
-                  )}
-                  {user?.result?._id ? (
-                    <>
-                      <Typography
-                        onClick={() => handleLogout()}
-                        textAlign="center"
-                      >
-                        {setting.six}
-                        
-                      </Typography>
-                      <Link to="/mpesa-payment">
-                        <Typography textAlign="center">
-                          {setting.five}
-                        </Typography>
-                      </Link>
-                    </>
-                  ) : (
-                    <Link to="/login">
-                      <Typography textAlign="center">{setting.four}</Typography>
-                    </Link>
-                  )}
+                 
                 </MenuItem>
               ))}
             </Menu>
@@ -300,10 +271,11 @@ function ResponsiveAppBar() {
           <Box
             style={{
               display: "flex",
-              gap: "3rem",
+              gap: "1rem",
               textDecoration: "none",
               listStyle: "none",
               flexWrap: "wrap",
+              
             }}
             sx={{ flexGrow: 0 }}
           >
@@ -314,7 +286,7 @@ function ResponsiveAppBar() {
               <Email />
             </a>
 
-            <a href="tel:+254 716 483268">
+            <a style={{marginRight:'.7rem'}} href="tel:+254 716 483268">
               <Call />
             </a>
           </Box>
@@ -351,20 +323,30 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {pages.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Link to="/login">
-                    <Typography textAlign="center">{setting.one}</Typography>
+                 
+                 <p>
+                    <Link to="/new-product">
+                    <Typography textAlign="center">{setting.five}</Typography>
                   </Link>
-
+                    </p>
                   {user?.result?._id ? (
                     <>
+                    <p>
+                    <Link to="/dashboard">
+                    <Typography textAlign="center">{setting.three}</Typography>
+                  </Link>
+                    </p>
+                    <p></p>
+                    
                       <Typography
                         onClick={() => handleLogout()}
                         textAlign="center"
                       >
                         {setting.six}
                       </Typography>
+                      
                     </>
                   ) : (
                     <>
