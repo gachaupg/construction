@@ -43,7 +43,7 @@ function Cardmore() {
        <div className="single-card-bottom">
         <Link to='/contact'>
         <button className="btn">
-          Try This Out 
+          Try This Design
         </button>
         </Link>
         
