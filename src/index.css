@@ -140,6 +140,14 @@ button:focus {
     flex-direction: column !important;
     width: 100%;
   }
+  .find-items{
+    display: flex;
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .cardfind{
+    width: 100% !important;
+  }
   .img-home {
     width: 95% !important;
   }
@@ -459,6 +467,13 @@ button:focus {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+}
+.find-items{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap !important;
+  align-items: center;
+  justify-content: space-around;
 }
 .findiconmain {
   width: 15px;

@@ -10,6 +10,8 @@ function Contactus() {
     <div className="fimdmain1" style={{marginBottom:"50px",padding:'1rem'}}>
       <h1 style={{textAlign:'center'}}>Contact Us</h1>
      <div className='findmain'>
+<div className="find-items">
+
 
         <div className="cardfind">
          <div className='findicon'>
@@ -37,7 +39,7 @@ function Contactus() {
          <p>+254 716 483268</p>
          <p>+25 716 483268</p>
          </div>
-
+         </div>
         </div>
         <div>
           <hr />
