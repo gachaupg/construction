@@ -59,7 +59,7 @@ const ProjectsCard = () => {
                   <h3>{i.construction}</h3>
                   <p>{i.constDescription}</p>
                   <div className="linkabout">
-                  <Link to={`/single-project/${i._id}`}>Learn More...</Link>
+                  <Link to={`/single-project/${i._id}`}>Learn More....</Link>
                     <div className="line"></div>
                   </div>
                 </div>
