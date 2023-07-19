@@ -18,7 +18,13 @@ import {
   MDBCardFooter,
   MDBCardGroup
 } from 'mdb-react-ui-kit';
+import {
 
+  MDBCardSubTitle,
+
+  MDBCardLink
+} from 'mdb-react-ui-kit';
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 const About = () => {
   return (
     <div className="about-main-page">
@@ -85,19 +91,32 @@ const About = () => {
       <MDBCard style={{height:'25rem' ,objectFit:'cover'}}>
         <MDBCardImage style={{height:'18rem' ,objectFit:'cover'}} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS4nshTSpFx3pFFa1Q1EXezFdn8w9fyJWoqQ&usqp=CAU' alt='...' position='top' />
         <MDBCardBody>
-          <MDBCardTitle style={{color:'magenta'}}>CONSTRUCTION</MDBCardTitle>
+          <MDBCardTitle style={{color:'magenta'}}>HOMECONSTRUCTION</MDBCardTitle>
           <MDBCardText>
-          Rorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor incutey.          </MDBCardText>
+          No matter what your dream home looks like, we can help bring it to life.
+
+We build architecturally designed single and multi-storey homes.
+
+                  </MDBCardText>
         </MDBCardBody>
        
       </MDBCard>
-
+      <MDBCard style={{height:'25rem' ,objectFit:'cover'}}>
+        <MDBCardImage style={{height:'18rem' ,objectFit:'cover'}} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS4nshTSpFx3pFFa1Q1EXezFdn8w9fyJWoqQ&usqp=CAU' alt='...' position='top' />
+        <MDBCardBody>
+          <MDBCardTitle style={{color:'magenta'}}>APARTMENT CONSTRUCTION</MDBCardTitle>
+          <MDBCardText>
+          We work with many clients to transform their home into something amazing! Two of the biggest renovations requested we see is for bathrooms and kitchens. 
+                  </MDBCardText>
+        </MDBCardBody>
+       
+      </MDBCard>
       <MDBCard style={{height:'25rem' ,objectFit:'cover'}}>
         <MDBCardImage style={{height:'18rem' ,objectFit:'cover'}} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbIIMuSmZOCev3QNshnAzjqsxM1ZX-m7Z0Fw&usqp=CAU' alt='...' position='top' />
         <MDBCardBody>
-          <MDBCardTitle style={{color:'magenta'}}>BUILDING REPAIR</MDBCardTitle>
+          <MDBCardTitle style={{color:'magenta'}}>BUILDING RENOVATIONS</MDBCardTitle>
           <MDBCardText>
-          Rorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor incutey.n.
+          We’re skilled in both single and two-storey extensions, along with façade and exterior upgrades. We can even assist with heritage restorations along with studio or commercial space builds.
           </MDBCardText>
         </MDBCardBody>
         
@@ -107,8 +126,71 @@ const About = () => {
       
 </MDBCard>
 
-<div>
-  <h2>Meet OUR Experts</h2>
+<div className="main-card-page">
+  <h2 style={{textAlign:'center'}}>Client <span style={{color:'blueviolet'}}> Testimonials</span> </h2>
+  <div className="about-cards-test">
+  <MDBCard className="test-card">
+      <MDBCardBody>
+        <MDBCardTitle><FaQuoteLeft/></MDBCardTitle>
+        <MDBCardText>
+        We would like to thank you and your team for the high quality work achieved in building our family home. It has been a pleasure working with you and your trades, combining hard work and a positive "can do" atmosphere. We love our new home!
+     </MDBCardText>
+       John
+        <MDBCardTitle><FaQuoteRight/></MDBCardTitle>
+
+      </MDBCardBody>
+    </MDBCard>
+    <MDBCard className="test-card">
+      <MDBCardBody>
+        <MDBCardTitle><FaQuoteLeft/></MDBCardTitle>
+        <MDBCardText>
+        A huge thank you to the Edyche
+Builders Constructions team when building our new home. After speaking with you, we knew what we could expect without smoke & mirrors or hidden costs. Your attention to detail was relieving for us both, and your experience and knowledge was invaluable when it come to our design decisions. In the end, we received a bespoke built home, constructed in a timely fashion, without conflict or stress on our part. Thank you!
+     </MDBCardText>
+       Allan Othiambo
+        <MDBCardTitle><FaQuoteRight/></MDBCardTitle>
+
+      </MDBCardBody>
+    </MDBCard>
+    <MDBCard className="test-card">
+      <MDBCardBody>
+        <MDBCardTitle><FaQuoteLeft/></MDBCardTitle>
+
+        <MDBCardText>
+        Throughout the project Edyche
+Builders Constructions has performed exceptionally well, demonstrating at all times a dedicated and professional attitude, completing the works in an efficient and timely manner with excellent quality of work.
+     </MDBCardText>
+     D Andren
+        <MDBCardTitle><FaQuoteRight/></MDBCardTitle>
+
+      </MDBCardBody>
+    </MDBCard>
+    <MDBCard className="test-card">
+      <MDBCardBody>
+        <MDBCardTitle><FaQuoteLeft/></MDBCardTitle>
+        <MDBCardText>
+        I found Edyche
+Builders attention to detail was particularly good, with fine detailing for all timber components. The subcontracting trades appeared to be working well together ... I will be inviting Jason to be a potential tenderer / builder in any future residential projects I design in the local area.
+     </MDBCardText>
+     S Gorrell
+        <MDBCardTitle><FaQuoteRight/></MDBCardTitle>
+
+      </MDBCardBody>
+    </MDBCard>
+    <MDBCard className="test-card">
+      <MDBCardBody>
+        <MDBCardTitle><FaQuoteLeft/></MDBCardTitle>
+        <MDBCardText>
+        From the initial contact the Edyche
+Builders Constructions team went above and beyond. Their quoting system was thorough and transparent. When onsite, the team and subcontractors left our home clean and tidy throughout the build. We were informed on a daily basis when the next trades were arriving and what we needed to be prepared for. The quality of work performed is of a premium standard and no request was too hard no matter how outside the "normal" it was. 
+     </MDBCardText>
+       Mr Robert
+        <MDBCardTitle><FaQuoteRight/></MDBCardTitle>
+
+      </MDBCardBody>
+    </MDBCard>
+  </div>
+  
 </div>
     </div>
   );

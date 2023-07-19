@@ -561,6 +561,11 @@ margin-bottom: 20px;
   .cardmore{
     width: 90% !important;
   }
+  .galleryimage {
+    width: 20% !important;
+    height: 20% !important;
+    object-fit: cover;
+  }
   /* .aboutmain{
     width: 80%;
     
@@ -588,6 +593,9 @@ margin-bottom: 20px;
   }
   .about-main-page {
     margin-top: 2rem;
+  }
+  .specificati{
+    width: 100% !important;
   }
 }
 .about-main-page {
@@ -620,9 +628,10 @@ margin-bottom: 20px;
   object-fit: cover;
 }
 .gallerycard {
-  border: white 1px solid;
-  margin-right: 2px;
-  margin-left: 2px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-wrap: wrap;
 }
 .main-gallery {
   display: flex;
@@ -741,4 +750,39 @@ margin-bottom: 20px;
 
 .return-home-button:hover {
   background-color: #0056b3;
+}
+.card-single-product{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+}
+.specificati{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10rem;
+  
+}
+.about-cards-test{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+}
+.test-card{
+  height: 25rem;
+  width: 28rem;
+}
+.images{
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }

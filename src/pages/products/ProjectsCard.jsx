@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Data } from "../../services/Data";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 const ProjectsCard = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,13 @@ const ProjectsCard = () => {
     }
     return 0;
   }
+
+  const excerpt = (str) => {
+    if (str.length > 55) {
+      str = str.substring(0, 55) + " ...";
+    }
+    return str;
+  };
   useEffect(() => {
     async function fetchData() {
       try {
@@ -35,6 +43,26 @@ const ProjectsCard = () => {
   }, []);
   return (
     <>
+    {loading ? (
+      <>
+        <Stack
+          style={{
+            display: "flex",
+            marginTop: "5rem",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          spacing={1}
+        >
+          {/* For variant="text", adjust the height via font-size */}
+          <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+          {/* For other variants, adjust the size with `width` and `height` */}
+          <Skeleton variant="circular" width={100} height={100} />
+          <Skeleton variant="rectangular" width={310} height={100} />
+          <Skeleton variant="rounded" width={310} height={100} />
+        </Stack>
+      </>
+    ) : (<>
       <div className="">
         <h2
           style={{
@@ -57,7 +85,7 @@ const ProjectsCard = () => {
                     );
                   })}
                   <h3>{i.construction}</h3>
-                  <p>{i.constDescription}</p>
+                  <p>{excerpt(i.constDescription)}</p>
                   <div className="linkabout">
                   <Link to={`/single-project/${i._id}`}>Learn More....</Link>
                     <div className="line"></div>
@@ -68,6 +96,7 @@ const ProjectsCard = () => {
           })}
         </div>
       </div>
+      </>)}
     </>
   );
 };

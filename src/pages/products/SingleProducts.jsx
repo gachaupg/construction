@@ -46,7 +46,7 @@ const [users, setUsers] = React.useState([]);
 
   const { image } = users;
   return (
-    <div>
+    <div style={{}}>
       <div
         style={{
           display: "flex",
