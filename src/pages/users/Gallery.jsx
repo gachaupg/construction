@@ -74,8 +74,8 @@ const Gallery = () => {
         const res = await axios.get(
           `https://hustle-kenya-7azi.onrender.com/stats/const`
         );
-        //   res.data.sort(compare);
-        const result = res.data.filter((_, index) => index < 15);
+          res.data.sort(compare);
+        const result = res.data.filter((_, index) => index < 10);
         setUsers(result);
         console.log("user", users);
       } catch (error) {

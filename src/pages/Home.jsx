@@ -42,9 +42,12 @@ const Home = () => {
 <h1> <span style={{color:'blueviolet'}} >Edyche Builders Ltd</span > ,<br /> 
 The  Best Buildings & Construction Company  In Kenya</h1>
 <h2>Creating Your Dream House with Affection</h2>
-<button className="btn"> <p 
+<Link to='/projects'>
+  <button className="btn"> <p 
  style={{marginBottom:'0rem'}}>Discover Projects</p> </button>
-</div>  <img className='img-home' src="https://arkio-react.wpocean.com/static/media/p2.2b3319864ab05fdaa9bd.jpg" alt="" />
+</Link>
+
+</div>  <img className='img-home' width={600} src="https://res.cloudinary.com/pitz/image/upload/v1689760661/WhatsApp_Image_2023-07-19_at_6.27.55_AM_odhaz2.jpg" alt="" />
 </div>
 {/* Cards */}
 <div style={{textAlign:'center',marginTop:'1rem'}} >
@@ -69,7 +72,7 @@ The  Best Buildings & Construction Company  In Kenya</h1>
                 <div className="card">
                   {i?.images?.slice(0, 1).map((image) => {
                     return (
-                      <img style={{ width: "20rem" }} src={image?.url} alt="" />
+                      <img style={{ width:"100%",height:'15rem',objectFit:'cover' }} src={image?.url} alt="" />
                     );
                   })}
                   <h3>{i.construction}</h3>

@@ -24,6 +24,7 @@ import NewProducts from "./pages/products/NewProducts";
 import Topbar from "./components/Topbar";
 import AllProducts from "./pages/users/Dashboard";
 import Cardmore from "./pages/products/SingleConst";
+import Notfound from "./components/Notfound";
 function App() {
   const dispatch = useDispatch();
   const [data, setDate] = useState([]);
@@ -37,7 +38,7 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <ResponsiveAppBar />
-        <div style={{marginTop:'4rem'}}>
+        <div style={{marginTop:'3.5rem'}}>
           <Topbar/>
         </div>
         
@@ -53,6 +54,7 @@ function App() {
         <Route path="/new-product" element={<NewProducts />} />
         <Route path="/dashboard" element={<AllProducts />} />
         <Route path="/single-project/:id" element={<Cardmore />} />
+        <Route path="*" element={<Notfound />} />
          
           <Route path="/login" element={<Login />} />
          

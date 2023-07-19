@@ -53,7 +53,7 @@ const ProjectsCard = () => {
                 <div className="card">
                   {i?.images?.slice(0, 1).map((image) => {
                     return (
-                      <img style={{ width:"100%" }} src={image?.url} alt="" />
+                      <img style={{ width:"100%",height:'15rem',objectFit:'cover' }} src={image?.url} alt="" />
                     );
                   })}
                   <h3>{i.construction}</h3>

@@ -32,7 +32,8 @@ const settings = [
   { seven: "About Us" },
   { eight: "Projects" },
   { nine: "Contact" },
-  {ten:"services"},
+  {ten:"Services"},
+  {five:"Gallery"},
  
 ];
 
@@ -108,7 +109,6 @@ function ResponsiveAppBar() {
     <AppBar style={{ color: "black ", background: "white" ,position:'fixed',zIndex:'100'}} position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -187,6 +187,11 @@ function ResponsiveAppBar() {
                   <>
                     <Link to="/services">
                       <Typography textAlign="center">{setting.ten}</Typography>
+                    </Link>
+                  </>
+                  <>
+                    <Link to="/photos">
+                      <Typography textAlign="center">{setting.five}</Typography>
                     </Link>
                   </>
                   <>
@@ -325,8 +330,9 @@ function ResponsiveAppBar() {
             >
               {pages.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                 
-                 <p>
+                 {user?.result?.admin === true ?(
+<>
+<p>
                     <Link to="/new-product">
                     <Typography textAlign="center">{setting.five}</Typography>
                   </Link>
@@ -357,6 +363,23 @@ function ResponsiveAppBar() {
                       </Link>
                     </>
                   )}
+</>
+                 ): <>
+                 <>
+                      <Link to="/login">
+                        <Typography textAlign="center">
+                          {setting.four}
+                        </Typography>
+                      </Link>
+                      <Typography
+                        onClick={() => handleLogout()}
+                        textAlign="center"
+                      >
+                        {setting.six}
+                      </Typography>
+                    </>
+                 </>}
+                 
                 </MenuItem>
               ))}
             </Menu>

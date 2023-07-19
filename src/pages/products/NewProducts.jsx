@@ -206,7 +206,26 @@ const currentTime=new Date();
             />
           </div>
           </div>
-         
+         <div className="sep-left">
+         <div className="form-outline mb-4">
+            <input
+                      className="form-control"
+
+              onChange={(e) => setForm({ ...form, specifications: e.target.value })}
+              type="text"
+              placeholder="House Featutures 1"
+            />
+          </div>
+          <div className="form-outline mb-4">
+            <input
+                      className="form-control"
+
+              onChange={(e) => setForm({ ...form, specifications1: e.target.value })}
+              type="text"
+              placeholder="House Featutures 2"
+            />
+          </div>
+         </div>
 
 <Form.Group className="mb-3">
 
