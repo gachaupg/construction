@@ -668,8 +668,8 @@ margin-bottom: 20px;
   position: fixed;
   top: 0;
   left: 0;
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   display: flex;
   object-fit: contain;
   justify-content: center;
@@ -677,10 +677,14 @@ margin-bottom: 20px;
   background-color: rgba(66, 60, 60, 0.8);
   z-index: 9999;
 }
-
+.images-preview-container{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
 .enlarged-image {
-  width: 600px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   opacity: 0.9;
   margin-top: 50px;
   border: white 1px solid;

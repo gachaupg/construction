@@ -20,7 +20,13 @@ import CallIcon from "@mui/icons-material/Call";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../redux/features/authSlice";
-import { Call, Email, WhatsApp, WhatshotOutlined } from "@mui/icons-material";
+import {
+  Call,
+  Email,
+  Home,
+  WhatsApp,
+  WhatshotOutlined,
+} from "@mui/icons-material";
 const pages = [
   { four: "Login" },
   { three: "Dashboard" },
@@ -32,9 +38,8 @@ const settings = [
   { seven: "About Us" },
   { eight: "Projects" },
   { nine: "Contact" },
-  {ten:"Services"},
-  {five:"Gallery"},
- 
+  { ten: "Services" },
+  { five: "Gallery" },
 ];
 
 function ResponsiveAppBar() {
@@ -106,27 +111,36 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar style={{ color: "black ", background: "white" ,position:'fixed',zIndex:'100'}} position="fixed">
+    <AppBar
+      style={{
+        color: "black ",
+        background: "white",
+        position: "fixed",
+        zIndex: "100",
+      }}
+      position="fixed"
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 900,
-              fontSize: "2rem",
-              letterSpacing: ".0rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Edyche <span style={{ color: "red" }}>Builders</span>
-          </Typography>
+          <Link to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 900,
+                fontSize: "2rem",
+                letterSpacing: ".0rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              Edyche <span style={{ color: "red" }}>Builders</span>
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -199,14 +213,19 @@ function ResponsiveAppBar() {
                       <Typography textAlign="center">{setting.nine}</Typography>
                     </Link>
                   </>
-
-                 
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Link to="/">
+            <Home
+              sx={{
+                display: { xs: "flex", md: "none" },
+                mr: 1,
+                fontSize: "2rem",
+              }}
+            />
+          </Link>
 
           <Typography
             variant="h5"
@@ -280,18 +299,17 @@ function ResponsiveAppBar() {
               textDecoration: "none",
               listStyle: "none",
               flexWrap: "wrap",
-              
             }}
             sx={{ flexGrow: 0 }}
           >
-            <a href="https://wa.me/0716 483268" className="me-4 text-reset">
+            <a href="https://wa.me/0716 483268">
               <WhatsApp />
             </a>
             <a href="mailto:edyche@gmail.com">
               <Email />
             </a>
 
-            <a style={{marginRight:'.7rem'}} href="tel:+254 716 483268">
+            <a style={{ marginRight: ".7rem" }} href="tel:+254 716 483268">
               <Call />
             </a>
           </Box>
@@ -330,56 +348,60 @@ function ResponsiveAppBar() {
             >
               {pages.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                 {user?.result?.admin === true ?(
-<>
-<p>
-                    <Link to="/new-product">
-                    <Typography textAlign="center">{setting.five}</Typography>
-                  </Link>
-                    </p>
-                  {user?.result?._id ? (
+                  {user?.result?.admin === true ? (
                     <>
-                    <p>
-                    <Link to="/dashboard">
-                    <Typography textAlign="center">{setting.three}</Typography>
-                  </Link>
-                    </p>
-                    <p></p>
-                    
-                      <Typography
-                        onClick={() => handleLogout()}
-                        textAlign="center"
-                      >
-                        {setting.six}
-                      </Typography>
-                      
+                      <p>
+                        <Link to="/new-product">
+                          <Typography textAlign="center">
+                            {setting.five}
+                          </Typography>
+                        </Link>
+                      </p>
+                      {user?.result?._id ? (
+                        <>
+                          <p>
+                            <Link to="/dashboard">
+                              <Typography textAlign="center">
+                                {setting.three}
+                              </Typography>
+                            </Link>
+                          </p>
+                          <p></p>
+
+                          <Typography
+                            onClick={() => handleLogout()}
+                            textAlign="center"
+                          >
+                            {setting.six}
+                          </Typography>
+                        </>
+                      ) : (
+                        <>
+                          <Link to="/login">
+                            <Typography textAlign="center">
+                              {setting.four}
+                            </Typography>
+                          </Link>
+                        </>
+                      )}
                     </>
                   ) : (
                     <>
-                      <Link to="/login">
-                        <Typography textAlign="center">
-                          {setting.four}
+                      <>
+                        <Link to="/login">
+                          <Typography textAlign="center">
+                            {setting.four}
+                          </Typography>
+                        </Link>
+                        <Typography
+                          onClick={() => handleLogout()}
+                          textAlign="center"
+                        >
+                          {setting.six}
                         </Typography>
-                      </Link>
+                      </>
                     </>
                   )}
-</>
-                 ): <>
-                 <>
-                      <Link to="/login">
-                        <Typography textAlign="center">
-                          {setting.four}
-                        </Typography>
-                      </Link>
-                      <Typography
-                        onClick={() => handleLogout()}
-                        textAlign="center"
-                      >
-                        {setting.six}
-                      </Typography>
-                    </>
-                 </>}
-                 
                 </MenuItem>
               ))}
             </Menu>

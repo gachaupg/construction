@@ -5,7 +5,7 @@ import { createProject } from "../../redux/features/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
-import moment from 'moment'
+import moment from "moment";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 // import { useCreateProductMutation } from "../../services/appApi";
@@ -14,7 +14,7 @@ import Stack from "@mui/material/Stack";
 
 function NewProduct() {
   const { user } = useSelector((state) => ({ ...state.auth }));
-  const[loading, setLoading]=useState(true)
+  const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
 
   const initialState = {
@@ -55,41 +55,41 @@ function NewProduct() {
   }
   const date = new Date();
 
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
 
-const d = new Date();
-let hours = d.getHours();
-// This arrangement can be altered based on how we want the date's format to appear.
-let currenDate = date.getTime('h');
-const currentTime=new Date();
-  
+  const d = new Date();
+  let hours = d.getHours();
+  // This arrangement can be altered based on how we want the date's format to appear.
+  let currenDate = date.getTime("h");
+  const currentTime = new Date();
+
   const id = user?.result?._id;
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get(`https://hustle-kenya-7azi.onrender.com/mpesa/stkPush/${id}`);
+        const res = await axios.get(
+          `https://hustle-kenya-7azi.onrender.com/mpesa/stkPush/${id}`
+        );
         res.data.sort(compare);
         const result = res.data.filter((_, index) => index < 1);
         setUsers(result);
-        if(users.amount<50){
-          navigate('/mpesa-payment')
-
+        if (users.amount < 50) {
+          navigate("/mpesa-payment");
         }
-        setLoading(false)
-        console.log('date',users);
+        setLoading(false);
+        console.log("date", users);
       } catch (error) {
         console.log(error);
-        setLoading(false)
-
+        setLoading(false);
       }
     }
     fetchData();
   }, []);
-// useEffect(()=>{
-//   if()
-// })
+  // useEffect(()=>{
+  //   if()
+  // })
 
   const [images, setImages] = useState([]);
 
@@ -150,114 +150,144 @@ const currentTime=new Date();
   console.log("img", images);
   return (
     <>
-    {users.amount <50 ? (<>
-    </>):(<>
-    <form
-      onSubmit={handleSubmit}
-      action=""
-      style={{ color: "black" }}
-      className="maininfo"
-      id="forms"
-    >
-     
-      <h1>Post an Item</h1>
-      {/* {user?.result?._id} */}
-      {loading ? (
-          <Stack spacing={1}>
-            {/* For variant="text", adjust the height via font-size */}
-            <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
-            {/* For other variants, adjust the size with `width` and `height` */}
-            <Skeleton variant="circular" width={40} height={40} />
-            <Skeleton variant="rectangular" width={210} height={60} />
-            <Skeleton variant="rounded" width={210} height={60} />
-          </Stack>
-        ) : (<>
-      <div className="sep">
-        <div className="sep-left">
+      {users.amount < 50 ? (
+        <></>
+      ) : (
+        <>
+          <form
+            onSubmit={handleSubmit}
+            action=""
+            style={{ color: "black" }}
+            className="maininfo"
+            id="forms"
+          >
+            <h1>Post an Item</h1>
+            {/* {user?.result?._id} */}
+            {loading ? (
+              <Stack spacing={1}>
+                {/* For variant="text", adjust the height via font-size */}
+                <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                {/* For other variants, adjust the size with `width` and `height` */}
+                <Skeleton variant="circular" width={40} height={40} />
+                <Skeleton variant="rectangular" width={210} height={60} />
+                <Skeleton variant="rounded" width={210} height={60} />
+              </Stack>
+            ) : (
+              <>
+                <div className="sep">
+                  <div className="sep-left">
+                    <div className="form-outline mb-4">
+                      <input
+                        className="form-control"
+                        onChange={(e) =>
+                          setForm({ ...form, construction: e.target.value })
+                        }
+                        type="text"
+                        placeholder="Construction Type"
+                      />
+                    </div>
+                    <div className="form-outline mb-4">
+                      <input
+                        className="form-control"
+                        onChange={(e) =>
+                          setForm({ ...form, constDescription: e.target.value })
+                        }
+                        type="text"
+                        placeholder="Construction description"
+                      />
+                    </div>
 
-       
-        <div className="form-outline mb-4">
-          <input 
-          className="form-control"
-           
-            onChange={(e) => setForm({ ...form, construction: e.target.value })}
-            type="text"
-            placeholder="Construction Type"
-          />
-        </div>
-        <div className="form-outline mb-4">
-          <input
-                    className="form-control"
+                    <div className="form-outline mb-4">
+                      <input
+                        className="form-control"
+                        onChange={(e) =>
+                          setForm({ ...form, constLocation: e.target.value })
+                        }
+                        type="text"
+                        placeholder="Construction Location"
+                      />
+                    </div>
+                    <div className="form-outline mb-4">
+                      <input
+                        className="form-control"
+                        onChange={(e) =>
+                          setForm({ ...form, specifications: e.target.value })
+                        }
+                        type="text"
+                        placeholder="House Featutures 1"
+                      />
+                    </div>
+                  </div>
+                  <div className="sep-left">
+                    <div className="form-outline mb-4">
+                      <input
+                        className="form-control"
+                        onChange={(e) =>
+                          setForm({ ...form, specifications1: e.target.value })
+                        }
+                        type="text"
+                        placeholder="House Featutures 2"
+                      />
+                    </div>
+                    <div className="form-outline mb-4">
+                      <input
+                        className="form-control"
+                        onChange={(e) =>
+                          setForm({ ...form, specifications3: e.target.value })
+                        }
+                        type="text"
+                        placeholder="House Featutures 3"
+                      />
+                    </div>
+                    <div className="form-outline mb-4">
+                      <input
+                        className="form-control"
+                        onChange={(e) =>
+                          setForm({ ...form, specifications4: e.target.value })
+                        }
+                        type="text"
+                        placeholder="House Featutures 4"
+                      />
+                    </div>
+                    <Form.Group className="mb-3">
+                      <Button
+                        style={{ width: "100%", textAlign: "center" }}
+                        type="button"
+                        onClick={showWidget}
+                      >
+                        Upload Images
+                      </Button>
+                    </Form.Group>
+                  </div>
 
-           
-            onChange={(e) => setForm({ ...form, constDescription: e.target.value })}
-            type="text"
-            placeholder="Construction description"
-          />
-        </div>
-         
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
+                  <button
+                    type="submit"
+                    style={{ width: "90%", marginBottom: "1rem" }}
+                    class="btn btn-primary btn-block"
+                  >
+                    Post the Product
+                  </button>
+                </div>
+              </>
+            )}
+          </form>
+        </>
+      )}
 
-              onChange={(e) => setForm({ ...form, constLocation: e.target.value })}
-              type="text"
-              placeholder="Construction Location"
-            />
+      <div className="images-preview-container">
+        {images.map((image) => (
+          <div className="image-preview">
+            <img width={200} src={image.url} />
+            {imgToRemove != image.public_id && (
+              <i
+                className="fa fa-times-circle"
+                onClick={() => handleRemoveImg(image)}
+              ></i>
+            )}
           </div>
-          </div>
-         <div className="sep-left">
-         <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) => setForm({ ...form, specifications: e.target.value })}
-              type="text"
-              placeholder="House Featutures 1"
-            />
-          </div>
-          <div className="form-outline mb-4">
-            <input
-                      className="form-control"
-
-              onChange={(e) => setForm({ ...form, specifications1: e.target.value })}
-              type="text"
-              placeholder="House Featutures 2"
-            />
-          </div>
-         </div>
-
-<Form.Group className="mb-3">
-
-        <Button style={{width:'100%',textAlign:'center'}} type="button" onClick={showWidget}>
-          Upload Images
-        </Button>
-  
- 
-
-        <div className="images-preview-container">
-          {images.map((image) => (
-            <div className="image-preview">
-              <img width={200} src={image.url} />
-              {imgToRemove != image.public_id && (
-                <i
-                  className="fa fa-times-circle"
-                  onClick={() => handleRemoveImg(image)}
-                ></i>
-              )}
-            </div>
-          ))}
-        </div>
-      </Form.Group>
-      
-      <button type="submit" style={{width:'90%',marginBottom:'1rem'}} class="btn btn-primary btn-block">Post the Product</button>
-     
-</div>
-</>)}
-    </form>
-    </>)}
+        ))}
+      </div>
     </>
-    
   );
 }
 

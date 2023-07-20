@@ -83,7 +83,10 @@ function Cardmore() {
        <div className="specificati">
         <ul>
         <li>{users.specifications}</li>
-            <li>{users.specifications1}</li>
+        <li>{users.specifications1}</li>
+        <li>{users.specifications3}</li>
+        <li>{users.specifications4}</li>
+
         </ul>
         <div className="single-card-bottom">
         <>
@@ -151,7 +154,7 @@ function Cardmore() {
               <MDBBtn color='secondary' onClick={() => setVaryingModal(!varyingModal)}>
                 Close
               </MDBBtn>
-              <MDBBtn>Save changes</MDBBtn>
+              <MDBBtn>Submit</MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>
