@@ -181,36 +181,36 @@ function ResponsiveAppBar() {
                 <MenuItem key={setting} onClick={handleCloseNavMenu}>
                   <>
                     <Link to="/">
-                      <Typography textAlign="center">{setting.one}</Typography>
+                      {setting.one}
                     </Link>
                   </>
                   <>
                     <Link to="/about">
-                      <Typography textAlign="center">
+                     
                         {setting.seven}
-                      </Typography>
+                     
                     </Link>
                   </>
                   <>
                     <Link to="/projects">
-                      <Typography textAlign="center">
+                      
                         {setting.eight}
-                      </Typography>
+                      
                     </Link>
                   </>
                   <>
                     <Link to="/services">
-                      <Typography textAlign="center">{setting.ten}</Typography>
+                      {setting.ten}
                     </Link>
                   </>
                   <>
                     <Link to="/photos">
-                      <Typography textAlign="center">{setting.five}</Typography>
+                      {setting.five}
                     </Link>
                   </>
                   <>
                     <Link to="/contact">
-                      <Typography textAlign="center">{setting.nine}</Typography>
+                      {setting.nine}
                     </Link>
                   </>
                 </MenuItem>
@@ -258,37 +258,37 @@ function ResponsiveAppBar() {
                 style={{ textDecoration: "none", listStyle: "none" }}
                 to="/"
               >
-                <Typography>Home</Typography>
+              Home
               </Link>
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
                 to="/about"
               >
-                <Typography>About us</Typography>
+              About us
               </Link>
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
                 to="/projects"
               >
-                <Typography>Projects</Typography>
+              Projects
               </Link>
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
                 to="/services"
               >
-                <Typography>Services</Typography>
+              Services
               </Link>
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
                 to="/photos"
               >
-                <Typography>Gallery</Typography>
+              Gallery
               </Link>
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
                 to="/contact"
               >
-                <Typography>Contact</Typography>
+              Contact
               </Link>
             </div>
           </Box>
@@ -352,18 +352,14 @@ function ResponsiveAppBar() {
                     <>
                       <p>
                         <Link to="/new-product">
-                          <Typography textAlign="center">
                             {setting.five}
-                          </Typography>
                         </Link>
                       </p>
                       {user?.result?._id ? (
                         <>
                           <p>
                             <Link to="/dashboard">
-                              <Typography textAlign="center">
                                 {setting.three}
-                              </Typography>
                             </Link>
                           </p>
                           <p></p>
@@ -378,9 +374,7 @@ function ResponsiveAppBar() {
                       ) : (
                         <>
                           <Link to="/login">
-                            <Typography textAlign="center">
                               {setting.four}
-                            </Typography>
                           </Link>
                         </>
                       )}
