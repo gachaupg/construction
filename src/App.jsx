@@ -5,7 +5,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ResponsiveAppBar from "./components/Navbar";
 import Register from "./pages/Register";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { ToastContainer, toast } from "react-toastify";
@@ -35,7 +35,15 @@ function App() {
   }, []);
   return (
     <>
-      <BrowserRouter>
+    <BrowserRouter>
+    <ResponsiveAppBar />
+
+   <Routes>
+   <Route path='/' element={<Home/>}/>
+    <Route path='/services' element={<Services/>}/>
+   </Routes>
+    </BrowserRouter>
+      {/* <BrowserRouter>
         <ToastContainer />
         <ResponsiveAppBar />
         <div style={{marginTop:'3.5rem'}}>
@@ -60,7 +68,7 @@ function App() {
          
         </Routes>
         <Footer/>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   );
 }
