@@ -5,7 +5,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ResponsiveAppBar from "./components/Navbar";
 import Register from "./pages/Register";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { ToastContainer, toast } from "react-toastify";
@@ -35,23 +35,14 @@ function App() {
   }, []);
   return (
     <>
-    <BrowserRouter>
-    <ResponsiveAppBar />
+       <BrowserRouter>
+      <ToastContainer />
+      <ResponsiveAppBar />
+      <div style={{ marginTop: '3.5rem' }}>
+        <Topbar />
+      </div>
 
-   <Routes>
-   <Route path='/' element={<Home/>}/>
-    <Route path='/services' element={<Services/>}/>
-   </Routes>
-    </BrowserRouter>
-      {/* <BrowserRouter>
-        <ToastContainer />
-        <ResponsiveAppBar />
-        <div style={{marginTop:'3.5rem'}}>
-          <Topbar/>
-        </div>
-        
-        
-        <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
@@ -63,12 +54,11 @@ function App() {
         <Route path="/dashboard" element={<AllProducts />} />
         <Route path="/single-project/:id" element={<Cardmore />} />
         <Route path="*" element={<Notfound />} />
-         
-          <Route path="/login" element={<Login />} />
-         
-        </Routes>
-        <Footer/>
-      </BrowserRouter> */}
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+      <Footer />
+    </BrowserRouter>
     </>
   );
 }
