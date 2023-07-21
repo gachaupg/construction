@@ -17,7 +17,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import CallIcon from "@mui/icons-material/Call";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../redux/features/authSlice";
 import {
@@ -193,6 +193,7 @@ function ResponsiveAppBar() {
                      
                     </Link>
                   </>
+
                   <>
                     <Link to="/projects">
                       
@@ -276,6 +277,8 @@ function ResponsiveAppBar() {
               >
               Projects
               </Link>
+              <Link as={NavLink} to="/login">LOGIN</Link>
+
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
                 to="/services"
