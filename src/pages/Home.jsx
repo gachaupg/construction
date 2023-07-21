@@ -111,7 +111,7 @@ const Home = () => {
                       setVaryingRecipient("@mdo");
                     }}
                   >
-                    Get Your Dream House
+                    Build Your Dream House
                   </MDBBtn>
                   <MDBModal
                     show={varyingModal}
