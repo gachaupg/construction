@@ -35,7 +35,6 @@ function App() {
   }, []);
   return (
     <>
-       <BrowserRouter>
       <ToastContainer />
       <ResponsiveAppBar />
       <div style={{ marginTop: '3.5rem' }}>
@@ -58,7 +57,6 @@ function App() {
       </Routes>
 
       <Footer />
-    </BrowserRouter>
     </>
   );
 }
