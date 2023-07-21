@@ -100,7 +100,7 @@ const Home = () => {
                     Edyche Builders Ltd
                   </span>{" "}
                   ,<br />
-                  The Best Buildings & Construction Company In Kenya
+                  The Best Building & Construction Company In Kenya
                 </h1>
                 <h2>Creating Your Dream House with Affection</h2>
                 <>
