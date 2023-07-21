@@ -603,11 +603,33 @@ margin-bottom: 20px;
 }
 .about-box {
   display: flex;
-  width: 50%;
+  width: 30%;
   gap: 2rem;
   flex-direction: column;
 }
-
+.section-about{
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.container-mdb{
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+.mdb-row{
+  /* background-color: blueviolet; */
+  width: 100%;
+}
+.items-mdb{
+  display: flex;
+  flex-wrap: wrap !important;
+}
 .services {
   width: 100%;
   display: flex;

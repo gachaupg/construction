@@ -57,7 +57,7 @@ const Home = () => {
           `https://hustle-kenya-7azi.onrender.com/stats/const`
         );
         res.data.sort(compare);
-        const result = res.data.filter((_, index) => index < 9);
+        const result = res.data.filter((_, index) => index < 18);
         setData(result);
         console.log(data);
         setLoading(false);
