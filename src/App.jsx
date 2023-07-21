@@ -44,7 +44,10 @@ function App() {
         
         
         <Routes>
-        <Route index path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+
+        {/* <Route index path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
@@ -54,7 +57,7 @@ function App() {
         <Route path="/new-product" element={<NewProducts />} />
         <Route path="/dashboard" element={<AllProducts />} />
         <Route path="/single-project/:id" element={<Cardmore />} />
-        <Route path="*" element={<Notfound />} />
+        <Route path="*" element={<Notfound />} /> */}
          
           <Route path="/login" element={<Login />} />
          
