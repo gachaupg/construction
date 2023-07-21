@@ -12,7 +12,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/features/authSlice";
 
-<Route path="/projects" element={<ProjectsCard />} />
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Footer from "./components/Footer";
