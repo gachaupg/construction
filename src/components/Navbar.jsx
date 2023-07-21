@@ -111,6 +111,7 @@ function ResponsiveAppBar() {
   };
 
   return (
+    <>
     <AppBar
       style={{
         color: "black ",
@@ -141,7 +142,7 @@ function ResponsiveAppBar() {
               Edyche <span style={{ color: "red" }}>Builders</span>
             </Typography>
           </Link>
-
+          <>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -153,6 +154,7 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
+            
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -177,6 +179,7 @@ function ResponsiveAppBar() {
 
                 </MenuItem> */}
               {/* ))} */}
+              
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseNavMenu}>
                   <>
@@ -213,10 +216,16 @@ function ResponsiveAppBar() {
                       {setting.nine}
                     </Link>
                   </>
+                  <Link to='/services'>
+            test
+          </Link>
                 </MenuItem>
               ))}
             </Menu>
+            
           </Box>
+          
+          </>
           <Link to="/">
             <Home
               sx={{
@@ -243,9 +252,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           ></Typography>
-          <Box
-            sx={{ flexGrow: 1, ml: 20, display: { xs: "none", md: "flex" } }}
-          >
+         
             <div
               style={{
                 display: "flex",
@@ -291,7 +298,7 @@ function ResponsiveAppBar() {
               Contact
               </Link>
             </div>
-          </Box>
+          
           <Box
             style={{
               display: "flex",
@@ -403,6 +410,7 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+    </>
   );
 }
 export default ResponsiveAppBar;
