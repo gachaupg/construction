@@ -35,7 +35,7 @@ const Footer = () => {
           <a href="https://twitter.com/ridge_techs" className="me-4 text-reset">
             <Twitter style={{color:"red"}} />
           </a>
-          <a href="edyche@gmail.com" className="me-4 text-reset">
+          <a href="edyche.em@gmail.com" className="me-4 text-reset">
             <Google style={{color:"red"}} />
           </a>
           <a href="https://www.instagram.com/peterrgachau/" className="me-4 text-reset">
@@ -75,22 +75,22 @@ const Footer = () => {
             <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-primary text-uppercase fw-bold mb-4">Products</h6>
               <p>
-                <Link to="/phones" className="text-reset">
+                <Link to="/projects" className="text-reset">
                  Plots
                 </Link>
               </p>
               <p>
-                <Link to="/cars" className="text-reset">
+                <Link to="/projects" className="text-reset">
                   Homes
                 </Link>
               </p>
               <p>
-                <Link to="/electronics" className="text-reset">
+                <Link to="/projects" className="text-reset">
                   Apartments
                 </Link>
               </p>
               <p>
-                <Link to="/clothing" className="text-reset">
+                <Link to="/projects" className="text-reset">
                  Mansions
                 </Link>
               </p>
@@ -129,7 +129,7 @@ const Footer = () => {
               </p>
               <p>
                 <MDBIcon icon="envelope" className="me-3" />
-                edyche@gmail.com
+                projects
               </p>
               <p>
                 <MDBIcon icon="phone" className="me-3" /> +254 716 483268

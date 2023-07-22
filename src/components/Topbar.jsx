@@ -5,7 +5,7 @@ const Topbar = () => {
   return (
     <div className='top-bar'>
       <div><Call/> +254 716 483268</div> 
-      <div><Email/> edyche@gmail.com</div> 
+      <div><Email/> edyche.em@gmail.com</div> 
     
     </div>
   )

@@ -277,7 +277,6 @@ function ResponsiveAppBar() {
               >
               Projects
               </Link>
-              <Link as={NavLink} to="/login">LOGIN</Link>
 
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
@@ -312,7 +311,7 @@ function ResponsiveAppBar() {
             <a href="https://wa.me/0716 483268">
               <WhatsApp />
             </a>
-            <a href="mailto:edyche@gmail.com">
+            <a href="mailto:edyche.em@gmail.com">
               <Email />
             </a>
 

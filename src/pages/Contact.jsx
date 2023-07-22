@@ -17,8 +17,9 @@ function Contactus() {
          <RoomOutlinedIcon/>
          </div>
          <h1>Address</h1>
-         <p>7 green lake street </p>
-         <p>crawfield in 47933</p>
+         <p>Edyche
+Builders </p>
+         <p>Nairobi , Kenya</p>
          </div>
 
          <div className="cardfind">
@@ -26,8 +27,7 @@ function Contactus() {
          <EmailOutlinedIcon/>
          </div>
          <h1>Email us</h1>
-         <p>arkion@gmail.com</p>
-         <p>helloyou@gmail.com</p>
+         <p>edyche.em@gmail.com</p>
          </div>
 
          <div className="cardfind">
@@ -35,8 +35,7 @@ function Contactus() {
          <LocalPhoneOutlinedIcon/>
          </div>
          <h1>Call now</h1>
-         <p>+ 1 800 123 456 789</p>
-         <p>+ 800 123 456 789</p>
+         <p>+254 716 483268</p>
          </div>
 
         </div>
