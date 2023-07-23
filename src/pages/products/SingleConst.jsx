@@ -1,8 +1,10 @@
-import { Card } from '@mui/material'
-import axios from 'axios';
-import React from 'react'
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Card } from "@mui/material";
+import axios from "axios";
+import React from "react";
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useForm, ValidationError } from "@formspree/react";
+
 import {
   MDBBtn,
   MDBModal,
@@ -14,13 +16,14 @@ import {
   MDBModalFooter,
   MDBTextArea,
   MDBInput,
-} from 'mdb-react-ui-kit';
+} from "mdb-react-ui-kit";
 function Cardmore() {
+  const [state, handleSubmit] = useForm("mpzgwyle");
 
-  const [varyingState, setVaryingState] = useState('');
+  const [varyingState, setVaryingState] = useState("");
   const [varyingModal, setVaryingModal] = useState(false);
-  const [varyingRecipient, setVaryingRecipient] = useState('');
-  const [varyingMessage, setVaryingMessage] = useState('');
+  const [varyingRecipient, setVaryingRecipient] = useState("");
+  const [varyingMessage, setVaryingMessage] = useState("");
 
   const onChangeRecipient = (event) => {
     setVaryingRecipient(event.target.value);
@@ -29,8 +32,6 @@ function Cardmore() {
   const onChangeMessage = (event) => {
     setVaryingMessage(event.target.value);
   };
-
-
 
   const [users, setUsers] = React.useState([]);
   const [enlargedImage, setEnlargedImage] = useState(null);
@@ -69,129 +70,184 @@ function Cardmore() {
     fetchData();
   }, []);
   return (
-    <div style={{marginBottom:'1rem'}}>
-
-    <div className='card-single-product' >
-    <div className="cardmore">
-       {users?.images?.slice(0, 1).map((image) => {
-            return <img style={{ width: "100%",objectFit:'cover' }} src={image?.url} alt="" />;
+    <div style={{ marginBottom: "1rem" }}>
+      <div className="card-single-product">
+        <div className="cardmore">
+          {users?.images?.slice(0, 1).map((image) => {
+            return (
+              <img
+                style={{ width: "100%", objectFit: "cover" }}
+                src={image?.url}
+                alt=""
+              />
+            );
           })}
-        <h3 className='moretitle'>{users.construction}</h3>
-        <p className='moredescription'>{users.constDescription}</p>
-       
-       </div>
-       <div className="specificati">
-        <ul>
-        <li>{users.specifications}</li>
-        <li>{users.specifications1}</li>
-        <li>{users.specifications3}</li>
-        <li>{users.specifications4}</li>
-
-        </ul>
-        <div className="single-card-bottom">
-        <>
-      <MDBBtn
-        onClick={() => {
-          setVaryingState('@mdo');
-          setVaryingModal(!varyingModal);
-          setVaryingRecipient('@mdo');
-        }}
-      >
-        Get Your Dream House
-      </MDBBtn>
-      <MDBModal show={varyingModal} setShow={setVaryingModal} tabIndex='-1'>
-        <MDBModalDialog>
-          <MDBModalContent>
-            <MDBModalHeader>
-              <MDBModalTitle>Get Your House Today</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={() => setVaryingModal(!varyingModal)}></MDBBtn>
-            </MDBModalHeader>
-            <MDBModalBody>
-              <form>
-                <div className='mb-3'>
-                  {varyingModal && (
-                    <MDBInput
-                     placeholder='Your Name'
-                      onChange={onChangeRecipient}
-                      labelClass='col-form-label'
-                      label='Your Name:'
-                    />
-                  )}
-                </div>
-                <div className='mb-3'>
-                  {varyingModal && (
-                    <MDBInput
-                     placeholder='Your Email'
-                      onChange={onChangeRecipient}
-                      labelClass='col-form-label'
-                      label='Your Email:'
-                    />
-                  )}
-                </div>
-                <div className='mb-3'>
-                  {varyingModal && (
-                    <MDBInput
-                     placeholder='Your Budget'
-                      onChange={onChangeRecipient}
-                      labelClass='col-form-label'
-                      label='Your House Budget:'
-                    />
-                  )}
-                </div>
-                <div className='mb-3'>
-                  {varyingModal && (
-                    <MDBTextArea
-                     placeholder='Describe your House'
-                      onChange={onChangeMessage}
-                      labelClass='col-form-label'
-                      label='Description of your house:'
-                    />
-                  )}
-                </div>
-              </form>
-            </MDBModalBody>
-            <MDBModalFooter>
-              <MDBBtn color='secondary' onClick={() => setVaryingModal(!varyingModal)}>
-                Close
+          <h3 className="moretitle">{users.construction}</h3>
+          <p className="moredescription">{users.constDescription}</p>
+        </div>
+        <div className="specificati">
+          <ul>
+            <li>{users.specifications}</li>
+            <li>{users.specifications1}</li>
+            <li>{users.specifications3}</li>
+            <li>{users.specifications4}</li>
+          </ul>
+          <div className="single-card-bottom">
+            <>
+              <MDBBtn
+                onClick={() => {
+                  setVaryingState("@mdo");
+                  setVaryingModal(!varyingModal);
+                  setVaryingRecipient("@mdo");
+                }}
+              >
+                Get Your Dream House
               </MDBBtn>
-              <MDBBtn>Submit</MDBBtn>
-            </MDBModalFooter>
-          </MDBModalContent>
-        </MDBModalDialog>
-      </MDBModal>
+              <MDBModal
+                show={varyingModal}
+                setShow={setVaryingModal}
+                tabIndex="-1"
+              >
+                <MDBModalDialog>
+                  <MDBModalContent>
+                    <MDBModalHeader>
+                      <MDBModalTitle>Get Your House Today</MDBModalTitle>
+                      <MDBBtn
+                        className="btn-close"
+                        color="none"
+                        onClick={() => setVaryingModal(!varyingModal)}
+                      ></MDBBtn>
+                    </MDBModalHeader>
+                    <MDBModalBody>
+                      <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                          {varyingModal && (
+                            <>
+                              <MDBInput
+                                placeholder="Your Name"
+                                labelClass="col-form-label"
+                                label="Your Name:"
+                                id="name"
+                                name="name"
+                                type="name"
+                              />
+                              <ValidationError
+                                prefix="Name"
+                                field="text"
+                                errors={state.errors}
+                              />
+                            </>
+                          )}
+                        </div>
+                        <div className="mb-3">
+                          {varyingModal && (
+                            <>
+                              <MDBInput
+                                placeholder="Your Email"
+                                id="email"
+                                name="email"
+                                type="email"
+                                labelClass="col-form-label"
+                                label="Your Email:"
+                              />
+                              <ValidationError
+                                prefix="Name"
+                                field="email"
+                                errors={state.errors}
+                              />
+                            </>
+                          )}
+                        </div>
+                        <div className="mb-3">
+                          {varyingModal && (
+                            <>
+                            <MDBInput
+                              placeholder="Your service"
+                              labelClass="col-form-label"
+                              id="email"
+                                name="email"
+                                type="email"
+                              label="Your service:"
+                            />
+                            <ValidationError
+                                prefix="Name"
+                                field="service"
+                                errors={state.errors}
+                              />
+                            </>
+                            
+                          )}
+                        </div>
+                        <div className="mb-3">
+                          {varyingModal && (
+                            <>
+                            <MDBTextArea
+                              placeholder="Describe your House"
+                              labelClass="col-form-label"
+                              id="email"
+                              name="email"
+                              type="email"
+                              label="Description of your house:"
+                            />
+                            <ValidationError
+                            prefix="Name"
+                            field="service"
+                            errors={state.errors}
+                          />
+                            </>
+                            
+                          )}
+                        </div>
+                        <MDBModalFooter>
+                          <MDBBtn
+                            color="secondary"
+                            onClick={() => setVaryingModal(!varyingModal)}
+                          >
+                            Close
+                          </MDBBtn>
+                          <MDBBtn>Submit</MDBBtn>
+                        </MDBModalFooter>
+                      </form>
+                    </MDBModalBody>
+                  </MDBModalContent>
+                </MDBModalDialog>
+              </MDBModal>
+            </>
 
-</>
-        
-        <button className="btn">
-         {users.constLocation}
-        </button>
-       </div>
-       </div>
-    </div>
+            <button className="btn">{users.constLocation}</button>
+          </div>
+        </div>
+      </div>
 
-<h3 style={{color:"blueviolet", textAlign: "center",marginTop:'1rem' }}> More Images</h3>
+      <h3
+        style={{ color: "blueviolet", textAlign: "center", marginTop: "1rem" }}
+      >
+        {" "}
+        More Images
+      </h3>
 
-<div className="images">
-  {users?.images?.map((image) => {
-    return <img style={{ width: "20rem",height:'20rem' }} src={image?.url} alt=""
-    onClick={() => handleImageClick(image?.url)} />;
-  })}
-</div>
-{enlargedImage && (
+      <div className="images">
+        {users?.images?.map((image) => {
+          return (
+            <img
+              style={{ width: "20rem", height: "20rem" }}
+              src={image?.url}
+              alt=""
+              onClick={() => handleImageClick(image?.url)}
+            />
+          );
+        })}
+      </div>
+      {enlargedImage && (
         <div
           className="enlarged-image-overlay"
           onClick={handleEnlargedImageClick}
         >
-          <img
-            className="enlarged-image"
-            src={enlargedImage}
-            alt=""
-          />
+          <img className="enlarged-image" src={enlargedImage} alt="" />
         </div>
-       
       )}
     </div>
-  )
+  );
 }
 
-export default Cardmore
+export default Cardmore;

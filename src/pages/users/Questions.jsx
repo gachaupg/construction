@@ -3,7 +3,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import { Link } from "react-router-dom";
 
 function Questions() {
-  const [state, handleSubmit] = useForm("mrgwzwgj");
+  const [state, handleSubmit] = useForm("mpzgwyle");
   if (state.succeeded) {
     return (
       <p>
@@ -23,14 +23,15 @@ function Questions() {
       <div className="questionform">
         <form onSubmit={handleSubmit} className="inputcontainer">
           <div className="inputdiv">
-            <input className="inputs"  id="name"
-        type="name" 
-        name="name" placeholder="name" />
-           <ValidationError 
-        prefix="Name" 
-        field="text"
-        errors={state.errors}
-      />
+            <input
+              className="inputs"
+              id="name"
+              
+              name="name"
+              type="name"
+              placeholder="name"
+            />
+            <ValidationError prefix="Name" field="text" errors={state.errors} />
             <input className="inputs" type="text" placeholder="Lastname" />
           </div>
 
@@ -42,12 +43,23 @@ function Questions() {
               name="email"
               placeholder="Email"
             />
-            <ValidationError 
-        prefix="Email" 
-        field="email"
-        errors={state.errors}
-      />
-            <input className="inputs" type="text" placeholder="Service" />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
+            <input
+              className="inputs"
+              id="email"
+              type="text"
+              name="service"
+              placeholder="Service"
+            />
+            <ValidationError
+              prefix="service"
+              field="service"
+              errors={state.errors}
+            />
           </div>
           <div>
             <div className="inputdiv">
@@ -57,11 +69,11 @@ function Questions() {
                 name="message"
                 placeholder="Message"
               />
-              <ValidationError 
-        prefix="Message" 
-        field="message"
-        errors={state.errors}
-      />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
             </div>
             <div className="inputdiv">
               <button id="btnquestion" className="inputs">
