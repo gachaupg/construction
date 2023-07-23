@@ -137,8 +137,9 @@ WE ARE EXPERT IN</h1>
               href="#interactive-card"
               sx={{ color: "text.tertiary" }}
             >
-              Rorem ipsum dolor sit ameto dey teyeryconsecteadipisicing elit,
-              sed do.
+              Designed for adaptability and disassembly
+
+Many steel products are designed and made in such a way that they can be disassembled and reused in their current form for any number of applications. This saves the cost and energy of making new products or the costs associated with recycling products.
             </Link>
           </Typography>
           <Chip
