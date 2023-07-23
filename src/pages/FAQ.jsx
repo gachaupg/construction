@@ -73,7 +73,7 @@ function Questions() {
             </div>
             <p className="answer">
               {showAnswer1 && (
-                <p>A buildong and construction company in nairobi. </p>
+                <p>A building and construction company in nairobi. </p>
               )}
             </p>
           </div>
@@ -97,7 +97,7 @@ function Questions() {
           <hr />
           <div className="quiz-content">
             <div className="question-title">
-              <p>How much does is cost to buld a house ?</p>
+              <p>How much does is cost to build a house ?</p>
               <h2 onClick={handleQuestion3Click}>
                 {showAnswer3 ? <AiOutlineMinus /> : <AiOutlinePlus size={25} />}
               </h2>
